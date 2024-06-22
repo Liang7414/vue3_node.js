@@ -11,8 +11,10 @@
 連接資料庫、將身分證字號設定為主鍵值、保存登入狀態、紀錄是否完成投票、投票完成將該用戶的資料變成唯讀不可修改，想到什麼之後再加進去。
 
 # 登入介面-初版2024/06/23
-沒意外之後會先把電子信箱的欄位改成身分證字號的格式
+沒意外之後會先把電子信箱的欄位改成身分證字號的格式，並加入驗證資料庫用戶的功能
+
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2pc.png)
+
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2phone.png)
 
 
