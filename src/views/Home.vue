@@ -1,0 +1,229 @@
+<template>
+  <div>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          @click="toggleNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          :class="{ show: navExpanded }"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav ms-auto" :class="{ 'flex-column full-height': navExpanded }">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 4</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div
+      class="background-container d-flex justify-content-center align-items-center vh-100"
+      :class="{ 'hidden-form': navExpanded }"
+    >
+      <div class="login-box p-4" :class="{ 'hidden-form': navExpanded }">
+        <h2 class="text-center">登入</h2>
+        <form @submit.prevent="handleSubmit" novalidate>
+          <div class="mb-3">
+            <label for="email" class="form-label">電子郵件地址</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              v-model="email"
+              :class="{ 'is-invalid': emailErrors.length }"
+              required
+            />
+            <div v-if="emailErrors.length" class="invalid-feedback">
+              <div v-for="error in emailErrors" :key="error">{{ error }}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">密碼</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              v-model="password"
+              :class="{ 'is-invalid': passwordErrors.length }"
+              required
+            />
+            <div v-if="passwordErrors.length" class="invalid-feedback">
+              <div v-for="error in passwordErrors" :key="error">{{ error }}</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">登入</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const email = ref('');
+    const password = ref('');
+    const emailErrors = ref([]);
+    const passwordErrors = ref([]);
+    const navExpanded = ref(false);
+
+    const validateEmail = () => {
+      emailErrors.value = [];
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email.value)) {
+        emailErrors.value.push('請輸入有效的電子郵件地址');
+      }
+      if (!email.value) {
+        emailErrors.value.push('電子郵件地址是必填項');
+      }
+    };
+
+    const validatePassword = () => {
+      passwordErrors.value = [];
+      if (password.value.length < 6) {
+        passwordErrors.value.push('密碼長度至少為6個字符');
+      }
+      if (!password.value) {
+        passwordErrors.value.push('密碼是必填項');
+      }
+    };
+
+    const handleSubmit = () => {
+      validateEmail();
+      validatePassword();
+      if (emailErrors.value.length === 0 && passwordErrors.value.length === 0) {
+        alert('登入成功！');
+        // 在這裡處理表單提交邏輯
+      }
+    };
+
+    const toggleNav = () => {
+      navExpanded.value = !navExpanded.value;
+    };
+
+    return {
+      email,
+      password,
+      emailErrors,
+      passwordErrors,
+      navExpanded,
+      handleSubmit,
+      toggleNav,
+    };
+  },
+};
+</script>
+
+<style>
+body {
+  margin: 0;
+  padding-top: 56px; /* Ensure the content is not hidden under the navbar */
+}
+
+.background-container {
+  background-image: url('https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+}
+
+.btn{
+  background-color: #111;
+  border: solid 0.5px #555;
+}
+
+.btn:hover{
+  background-color: #134;
+}
+
+.navbar-collapse.show {
+  display: block !important;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+.navbar-nav.flex-column .nav-item {
+  width: 100%;
+  text-align: center;
+}
+
+.navbar-nav.flex-column .nav-item .nav-link {
+  padding: 1rem;
+  width: 100%;
+}
+
+.nav-item{
+  font-size: 0;
+  padding: 0 10px;
+  margin:0 5px;
+  transition: 1s;
+  border-radius: 5px;
+}
+
+.nav-link{
+  font-size:16px;
+}
+
+.nav-item:hover{
+  background-color: #999;
+}
+
+.nav-item:hover a{
+  color: #333;
+}
+
+
+
+.full-height {
+  height: calc(100vh - 56px); /* Full height minus navbar height */
+}
+
+.hidden-form {
+  opacity: 0;
+  pointer-events: none;
+}
+</style>
