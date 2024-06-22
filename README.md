@@ -4,7 +4,8 @@
 
 # 登入介面-初版2024/06/23
 沒意外之後會先把電子信箱的欄位改成身分證字號的格式
-
+![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2pc.png)
+![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2phone.png)
 
 # vue3
 
