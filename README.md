@@ -14,6 +14,11 @@
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2pc.png)
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2phone.png)
 
+# vue3環境建置
+參考文章:https://ithelp.ithome.com.tw/users/20151272/ironman/6829
+我是參考文章的day2跟day3去建置的，day2的部分文章沒有提到的選項我是都填否
+
+
 # vue3
 
 This template should help get you started developing with Vue 3 in Vite.
