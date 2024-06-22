@@ -1,5 +1,6 @@
 # vue3環境建置
 參考文章:https://ithelp.ithome.com.tw/users/20151272/ironman/6829
+
 我是參考文章的day2跟day3去建置的，day2的部分文章沒有提到的選項我是都填否
 
 # 關於使用chatgpt協助我用vue3傳寫網頁這檔事
