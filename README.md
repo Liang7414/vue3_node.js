@@ -1,10 +1,10 @@
+# vue3環境建置
+參考文章:https://ithelp.ithome.com.tw/users/20151272/ironman/6829
+我是參考文章的day2跟day3去建置的，day2的部分文章沒有提到的選項我是都填否
+
 # 關於使用chatgpt協助我用vue3傳寫網頁這檔事
 我過去曾在總統大選時擔任過外監志工，對於台灣明明是在科技方面不算落後的國家，卻依然使用幾十年前的投票方式，我對此感到疑惑，以此為動機我嘗試寫一個線上投票系統，
 雖然有學過一陣子的HTML跟CSS，但我排版跟切版的功力還是太菜了，常常在RWD切版時出現預期外的狀況，荒廢好幾個月之後，我嘗試使用chatgpt生成一個大概的版型，再細修CSS的部分變成我要的樣子。
-
-
-
-
 
 # 初步規劃要有的功能 
 連接資料庫、將身分證字號設定為主鍵值、保存登入狀態、紀錄是否完成投票、投票完成將該用戶的資料變成唯讀不可修改，想到什麼之後再加進去。
@@ -14,9 +14,7 @@
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2pc.png)
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2phone.png)
 
-# vue3環境建置
-參考文章:https://ithelp.ithome.com.tw/users/20151272/ironman/6829
-我是參考文章的day2跟day3去建置的，day2的部分文章沒有提到的選項我是都填否
+
 
 
 # vue3
