@@ -1,7 +1,7 @@
 # vue3環境建置
 參考文章:https://ithelp.ithome.com.tw/users/20151272/ironman/6829
 
-我是參考文章的day2跟day3去建置的，day2的部分文章沒有提到的選項我是都填否
+我是參考文章的day2跟day3去建置的，day2的部分文章沒有提到的選項我是都填否，接下來我不會再對安裝套件或者環境建置多作說明，因為chatgpt都能問得到:)))
 
 # 關於使用chatgpt協助我用vue3傳寫網頁這檔事
 我過去曾在總統大選時擔任過外監志工，台灣明明科技水平不算落後，卻依然使用幾十年前的投票方式，我對此感到疑惑，以此為動機我嘗試寫一個線上投票系統，
@@ -20,41 +20,19 @@
 # 將電子信箱欄位改為身分證字號-2024/06/24
 因接下來要連接資料庫需要安裝套件，避免環境崩壞先在此存檔順便推送
 
-![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%BA%AB%E5%88%86%E8%AD%89%E6%AD%A3%E7%A2%BA%E6%A0%BC%E5%BC%8F.png) ![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%BA%AB%E5%88%86%E8%AD%89%E9%8C%AF%E8%AA%A4%E6%A0%BC%E5%BC%8F.png)
+![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%BA%AB%E5%88%86%E8%AD%89%E6%AD%A3%E7%A2%BA%E6%A0%BC%E5%BC%8F.png) 
+![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%BA%AB%E5%88%86%E8%AD%89%E9%8C%AF%E8%AA%A4%E6%A0%BC%E5%BC%8F.png)
 
+# 完成資料庫連接以及比對資料庫進行登入驗證-2024/06/24
 
-# vue3
+測試資料庫的資料
 
-This template should help get you started developing with Vue 3 in Vite.
+![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%B3%87%E6%96%99%E5%BA%AB.png)
 
-## Recommended IDE Setup
+非用戶登入
+![image](https://github.com/Liang7414/vue3_project/blob/main/%E9%9D%9E%E7%94%A8%E6%88%B6%E7%99%BB%E5%85%A5.png)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+用戶登入
+![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%94%A8%E6%88%B6%E7%99%BB%E5%85%A5.png)
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+下一步應該是先設計投票介面還有保存cookie的功能
