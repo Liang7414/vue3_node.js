@@ -22,39 +22,13 @@
 
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%BA%AB%E5%88%86%E8%AD%89%E6%AD%A3%E7%A2%BA%E6%A0%BC%E5%BC%8F.png) ![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%BA%AB%E5%88%86%E8%AD%89%E9%8C%AF%E8%AA%A4%E6%A0%BC%E5%BC%8F.png)
 
+# 完成資料庫連接以及比對資料庫進行登入驗證-2024/06/24
 
-# vue3
+測試資料庫的資料
+! [image](https://github.com/Liang7414/vue3_project/blob/main/%E8%B3%87%E6%96%99%E5%BA%AB.png)
 
-This template should help get you started developing with Vue 3 in Vite.
+非用戶登入
+! [image](https://github.com/Liang7414/vue3_project/blob/main/%E9%9D%9E%E7%94%A8%E6%88%B6%E7%99%BB%E5%85%A5.png)
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+用戶登入
+! [image](https://github.com/Liang7414/vue3_project/blob/main/%E7%94%A8%E6%88%B6%E7%99%BB%E5%85%A5.png)
