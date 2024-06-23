@@ -17,6 +17,9 @@
 
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2phone.png)
 
+# 將電子信箱欄位改為身分證字號-2024/06/23
+因接下來要連接資料庫需要安裝套件，避免環境崩壞先在此存檔
+
 
 
 
