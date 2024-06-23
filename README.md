@@ -26,6 +26,7 @@
 # 完成資料庫連接以及比對資料庫進行登入驗證-2024/06/24
 
 測試資料庫的資料
+
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%B3%87%E6%96%99%E5%BA%AB.png)
 
 非用戶登入
