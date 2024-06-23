@@ -34,3 +34,5 @@
 
 用戶登入
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%94%A8%E6%88%B6%E7%99%BB%E5%85%A5.png)
+
+下一步應該是先設計投票介面還有保存cookie的功能
