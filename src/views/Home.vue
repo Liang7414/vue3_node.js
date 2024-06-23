@@ -82,6 +82,7 @@
 
 <script>
 import { ref } from 'vue';
+import axios from 'axios';
 
 export default {
   setup() {
@@ -116,8 +117,21 @@ export default {
       validateIdNumber();
       validatePassword();
       if (idNumberErrors.value.length === 0 && passwordErrors.value.length === 0) {
-        alert('登入成功！');
-        // 在這裡處理表單提交邏輯
+        axios.post('http://localhost:3000/login', {
+          idNumber: idNumber.value,
+          password_: password.value
+        })
+        .then(response => {
+          alert('登入成功！');
+          // 在這裡處理成功登錄邏輯
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 401) {
+            alert('Invalid credentials');
+          } else {
+            alert('An error occurred');
+          }
+        });
       }
     };
 
