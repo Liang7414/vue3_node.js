@@ -17,7 +17,7 @@
 
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E7%99%BB%E5%85%A5%E4%BB%8B%E9%9D%A2phone.png)
 
-# 將電子信箱欄位改為身分證字號-2024/06/23
+# 將電子信箱欄位改為身分證字號-2024/06/24
 因接下來要連接資料庫需要安裝套件，避免環境崩壞先在此存檔順便推送
 
 ![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%BA%AB%E5%88%86%E8%AD%89%E6%AD%A3%E7%A2%BA%E6%A0%BC%E5%BC%8F.png) ![image](https://github.com/Liang7414/vue3_project/blob/main/%E8%BA%AB%E5%88%86%E8%AD%89%E9%8C%AF%E8%AA%A4%E6%A0%BC%E5%BC%8F.png)
