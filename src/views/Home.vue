@@ -46,17 +46,17 @@
         <h2 class="text-center">登入</h2>
         <form @submit.prevent="handleSubmit" novalidate>
           <div class="mb-3">
-            <label for="email" class="form-label">電子郵件地址</label>
+            <label for="idNumber" class="form-label">身分證字號</label>
             <input
-              type="email"
+              type="text"
               class="form-control"
-              id="email"
-              v-model="email"
-              :class="{ 'is-invalid': emailErrors.length }"
+              id="idNumber"
+              v-model="idNumber"
+              :class="{ 'is-invalid': idNumberErrors.length }"
               required
             />
-            <div v-if="emailErrors.length" class="invalid-feedback">
-              <div v-for="error in emailErrors" :key="error">{{ error }}</div>
+            <div v-if="idNumberErrors.length" class="invalid-feedback">
+              <div v-for="error in idNumberErrors" :key="error">{{ error }}</div>
             </div>
           </div>
           <div class="mb-3">
@@ -85,20 +85,20 @@ import { ref } from 'vue';
 
 export default {
   setup() {
-    const email = ref('');
+    const idNumber = ref('');
     const password = ref('');
-    const emailErrors = ref([]);
+    const idNumberErrors = ref([]);
     const passwordErrors = ref([]);
     const navExpanded = ref(false);
 
-    const validateEmail = () => {
-      emailErrors.value = [];
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email.value)) {
-        emailErrors.value.push('請輸入有效的電子郵件地址');
+    const validateIdNumber = () => {
+      idNumberErrors.value = [];
+      const idNumberPattern = /^[A-Z][12]\d{8}$/;
+      if (!idNumberPattern.test(idNumber.value)) {
+        idNumberErrors.value.push('請輸入有效的身分證字號');
       }
-      if (!email.value) {
-        emailErrors.value.push('電子郵件地址是必填項');
+      if (!idNumber.value) {
+        idNumberErrors.value.push('身分證字號是必填項');
       }
     };
 
@@ -113,9 +113,9 @@ export default {
     };
 
     const handleSubmit = () => {
-      validateEmail();
+      validateIdNumber();
       validatePassword();
-      if (emailErrors.value.length === 0 && passwordErrors.value.length === 0) {
+      if (idNumberErrors.value.length === 0 && passwordErrors.value.length === 0) {
         alert('登入成功！');
         // 在這裡處理表單提交邏輯
       }
@@ -126,9 +126,9 @@ export default {
     };
 
     return {
-      email,
+      idNumber,
       password,
-      emailErrors,
+      idNumberErrors,
       passwordErrors,
       navExpanded,
       handleSubmit,
@@ -169,12 +169,12 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.btn{
+.btn {
   background-color: #111;
   border: solid 0.5px #555;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #134;
 }
 
@@ -196,27 +196,25 @@ body {
   width: 100%;
 }
 
-.nav-item{
+.nav-item {
   font-size: 0;
   padding: 0 10px;
-  margin:0 5px;
+  margin: 0 5px;
   transition: 1s;
   border-radius: 5px;
 }
 
-.nav-link{
-  font-size:16px;
+.nav-link {
+  font-size: 16px;
 }
 
-.nav-item:hover{
+.nav-item:hover {
   background-color: #999;
 }
 
-.nav-item:hover a{
+.nav-item:hover a {
   color: #333;
 }
-
-
 
 .full-height {
   height: calc(100vh - 56px); /* Full height minus navbar height */
