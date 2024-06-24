@@ -81,8 +81,8 @@
 </template>
 
 <script>
-import { ref } from 'vue';
 import axios from 'axios';
+import { ref } from 'vue';
 
 export default {
   setup() {
@@ -113,25 +113,24 @@ export default {
       }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
       validateIdNumber();
       validatePassword();
       if (idNumberErrors.value.length === 0 && passwordErrors.value.length === 0) {
-        axios.post('http://localhost:3000/login', {
-          idNumber: idNumber.value,
-          password_: password.value
-        })
-        .then(response => {
-          alert('登入成功！');
-          // 在這裡處理成功登錄邏輯
-        })
-        .catch(error => {
-          if (error.response && error.response.status === 401) {
-            alert('Invalid credentials');
+        try {
+          const response = await axios.post('http://localhost:3000/login', {
+            idNumber: idNumber.value,
+            password: password.value,
+          });
+          if (response.data.success) {
+            alert('登入成功！');
           } else {
-            alert('An error occurred');
+            alert(response.data.error);
           }
-        });
+        } catch (error) {
+          console.error('Login error:', error);
+          alert('登入失敗，請稍後再試');
+        }
       }
     };
 
@@ -183,12 +182,12 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.btn {
+.btn{
   background-color: #111;
   border: solid 0.5px #555;
 }
 
-.btn:hover {
+.btn:hover{
   background-color: #134;
 }
 
@@ -210,23 +209,23 @@ body {
   width: 100%;
 }
 
-.nav-item {
+.nav-item{
   font-size: 0;
   padding: 0 10px;
-  margin: 0 5px;
+  margin:0 5px;
   transition: 1s;
   border-radius: 5px;
 }
 
-.nav-link {
-  font-size: 16px;
+.nav-link{
+  font-size:16px;
 }
 
-.nav-item:hover {
+.nav-item:hover{
   background-color: #999;
 }
 
-.nav-item:hover a {
+.nav-item:hover a{
   color: #333;
 }
 
