@@ -38,3 +38,5 @@
 # 新增投票頁面-2024/06/27
 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/vote_page.png)
 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/vote_page_no_choice.png)
+
+這裡還沒有連接至後端所以點選投票不會有任何動作
