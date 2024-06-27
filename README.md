@@ -34,6 +34,9 @@
 用戶登入
 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E7%94%A8%E6%88%B6%E7%99%BB%E5%85%A5.png)
 
+# 很重要  請記得啟動後端服務器
+![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%95%9F%E5%8B%95%E6%9C%8D%E5%8B%99%E5%99%A8.png)
+
 # 新增投票頁面-2024/06/27
 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/vote_page.png)
 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/vote_page_no_choice.png)
