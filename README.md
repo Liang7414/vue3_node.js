@@ -42,4 +42,5 @@
 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/vote_page_no_choice.png)
 
 這裡還沒有連接至後端所以點選投票不會有任何動作，之後在下方會再加上顯示目前選取項目的功能，以及點選投票跳出視窗
+
 確定送出投票? 選取項目:xx，按下確認才送出投票。
