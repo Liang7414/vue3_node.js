@@ -16,7 +16,7 @@
 
 
 # 登入介面
-手機/平板 ! {image}(https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_PHONE%E7%99%BB%E5%85%A5.png)
+手機/平板 !{image}(https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_PHONE%E7%99%BB%E5%85%A5.png)
 
 # 更新日誌
 登入介面-初版2024/06/23->
