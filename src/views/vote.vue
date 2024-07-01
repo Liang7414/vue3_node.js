@@ -28,8 +28,9 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie';
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default {
@@ -37,20 +38,41 @@ export default {
     const selectedOption = ref(null);
     const router = useRouter();
 
+
     const selectOption = (option) => {
       selectedOption.value = option;
     };
 
     const submitVote = () => {
+      const idNumber = Cookies.get('idNumber');
+      const password = Cookies.get('password');
+      if (!idNumber || !password) {
+        alert('無法獲取用戶信息，請重新登入');
+        router.push('/');
+        return;
+      }
+
       if (selectedOption.value !== null) {
         axios.post('http://localhost:3000/vote', {
+          idNumber: idNumber,
           voteChoice: selectedOption.value
         })
         .then(response => {
-          alert('投票成功！');
+          if (response.data.success) {
+            alert('投票已完成，將會在3秒後自動登出');
+            setTimeout(() => {
+              Cookies.remove('idNumber');
+              Cookies.remove('password');
+              router.push('/');
+            }, 3000); // 3秒後重定向到登入頁面
+          } else {
+            alert(response.data.error);
+          }
         })
+
         .catch(error => {
           console.error('投票失敗', error);
+          alert('投票失敗，請稍後再試');
         });
       } else {
         alert('請選擇一個選項');
@@ -59,8 +81,19 @@ export default {
 
     const logout = () => {
       alert('已登出');
+      Cookies.remove('idNumber');
+      Cookies.remove('password');
       router.push('/');
     };
+
+    onMounted(() => {  
+      setTimeout(() => {
+        Cookies.remove('idNumber');
+        Cookies.remove('password');
+        router.push({ path: '/', query: { expired: true } });
+      }, 1 * 60 * 1000); // 10 分鐘後重定向到登入頁面
+      
+    });
 
     return {
       selectedOption,
@@ -73,11 +106,27 @@ export default {
 </script>
 
 <style>
+
+body {
+  margin: 0;
+  padding: 0; /* Ensure the content is not hidden under the navbar */
+}
+
 .vote-page {
   position: relative;
   height: 100vh;
-  background: #f0f0f0;
+  background: #a0a0f0;
 }
+
+.btn{
+  background-color: #111;
+  border: solid 0.5px #555;
+}
+
+.btn:hover{
+  background-color: #134;
+}
+
 
 .logout-btn {
   position: absolute;
@@ -94,13 +143,16 @@ export default {
 }
 
 .vote-form {
+  border-radius: 10px;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
   flex-wrap: wrap;
-  padding-top: 60px;
-  max-width: 1400px;
+  padding: 100px 0;
+  max-width: 800px;
+  opacity: 0.9;
 }
 
 .vote-option {
@@ -136,11 +188,8 @@ export default {
   filter: grayscale(100%);
 }
 
-@media (max-width: 768px) {
-
-  .vote-form {
-    top: 5vh;
-    max-height: 90vh;
-  }
+.vote-option.grayscale:hover{
+  filter: grayscale(0%);
 }
+
 </style>

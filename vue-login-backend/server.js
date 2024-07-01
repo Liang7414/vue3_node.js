@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'yourpwd',
-  database: 'yourdb',
+  password: 'ji3y94u4fu3',
+  database: 'sql_test',
 });
 
 // 连接到MySQL数据库
@@ -29,27 +29,36 @@ db.connect((err) => {
 // 登入API
 app.post('/login', (req, res) => {
   const { idNumber, password } = req.body;
-  
-  if (!idNumber || !password) {
-    return res.status(400).json({ success: false, error: '請填寫所有欄位' });
-  }
-
-  // 验证身分證字號和密码
-  const query = 'SELECT * FROM users WHERE idNumber = ? AND password_ = ?';
+  const query = 'SELECT * FROM user WHERE idNumber = ? AND password_ = ?';
   db.query(query, [idNumber, password], (err, results) => {
     if (err) {
-      console.error('Database error:', err);
-      return res.status(500).json({ success: false, error: 'Database error' });
+      return res.status(500).send(err);
     }
-
     if (results.length > 0) {
       const user = results[0];
-      if (user.vote_status === 1) {
-        return res.status(403).json({ success: false, error: '此用戶已完成投票' });
+      if (user.vote_status) {
+        res.send({ success: false, error: '您已經投票，無法再次登入' });
+      } else {
+        res.send({ success: true, vote_status: user.vote_status });
       }
-      res.json({ success: true, message: '登入成功' });
     } else {
-      res.status(401).json({ success: false, error: '無效的身分證字號或密碼' });
+      res.send({ success: false, error: '無效的身分證字號或密碼' });
+    }
+  });
+});
+
+app.post('/vote', (req, res) => {
+  const { idNumber, voteChoice } = req.body;
+  const updateQuery = 'UPDATE user SET vote_choice = ?, vote_status = true WHERE idNumber = ?';
+
+  db.query(updateQuery, [voteChoice, idNumber], (err, results) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    if (results.affectedRows > 0) {
+      res.send({ success: true });
+    } else {
+      res.send({ success: false, error: '投票失敗' });
     }
   });
 });

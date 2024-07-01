@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login-page">
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
@@ -81,8 +81,10 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie';
+import { useRouter, useRoute } from 'vue-router';
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref,onMounted} from 'vue';
 
 export default {
   setup() {
@@ -91,6 +93,9 @@ export default {
     const idNumberErrors = ref([]);
     const passwordErrors = ref([]);
     const navExpanded = ref(false);
+    const router = useRouter();
+    const route = useRoute();
+
 
     const validateIdNumber = () => {
       idNumberErrors.value = [];
@@ -123,8 +128,17 @@ export default {
             password: password.value,
           });
           if (response.data.success) {
-            alert('登入成功！');
-          } else {
+            if (response.data.vote_status) {
+              alert('您已經投票，無法再次登入');
+            } 
+            else {
+              alert('登入成功！');
+              Cookies.set('idNumber', idNumber.value, { expires: 1});
+              Cookies.set('password', password.value, { expires: 1});
+              router.push('/vote');
+            }
+          } 
+          else {
             alert(response.data.error);
           }
         } catch (error) {
@@ -137,6 +151,13 @@ export default {
     const toggleNav = () => {
       navExpanded.value = !navExpanded.value;
     };
+
+    onMounted(() => {
+      if (route.query.expired) {
+        alert('登入已過期，請重新登入');
+        router.push('/');
+      }
+    });
 
     return {
       idNumber,
@@ -152,7 +173,7 @@ export default {
 </script>
 
 <style>
-body {
+.login-page {
   margin: 0;
   padding-top: 56px; /* Ensure the content is not hidden under the navbar */
 }
