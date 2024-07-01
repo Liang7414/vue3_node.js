@@ -84,7 +84,7 @@
 import Cookies from 'js-cookie';
 import { useRouter, useRoute } from 'vue-router';
 import axios from 'axios';
-import { ref,onMounted} from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 export default {
   setup() {
@@ -152,11 +152,23 @@ export default {
       navExpanded.value = !navExpanded.value;
     };
 
+    const handleResize = () => {
+      if (window.innerWidth >= 769) {
+        navExpanded.value = false;
+      }
+    };
+
     onMounted(() => {
+      window.addEventListener('resize', handleResize);
+      handleResize();
       if (route.query.expired) {
         alert('登入已過期，請重新登入');
         router.push('/');
       }
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', handleResize);
     });
 
     return {
