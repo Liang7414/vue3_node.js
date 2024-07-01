@@ -32,6 +32,20 @@ PC端
 
 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_%E5%8F%AF%E4%BB%A5%E7%99%BB%E5%85%A5%E7%9A%84%E7%8B%80%E6%B3%81.png)
 
+# 投票頁面
+選取到的項目才會是全彩，其他選項會是灰階
+
+![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_%E6%8A%95%E7%A5%A8%E9%A0%81%E9%9D%A2.png)
+
+時間超過設定時間會強制登出並且要求重新登入
+
+![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_cookie%E9%81%8E%E6%9C%9F.png)
+
+送出投票成功
+
+![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_%E9%80%81%E5%87%BA%E6%8A%95%E7%A5%A8.png)
+
+
 # 更新日誌
 登入介面-初版2024/06/23->
 
@@ -43,6 +57,7 @@ PC端
 
 新增保存cookie以及根據vote_status給予登入權限功能-2024/07/01
 
+目前基本的功能都有做出來，還在慢慢測試bug，修正的bug之後也會放上更新日誌
 
 
 
