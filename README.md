@@ -16,12 +16,21 @@
 
 
 # 登入介面
-手機/平板 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_PHONE%E7%99%BB%E5%85%A5.png)
+手機/平板 
 
-PC端 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_PC%E7%99%BB%E5%85%A5.png)
+![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_PHONE%E7%99%BB%E5%85%A5.png)
+
+PC端 
+
+![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_PC%E7%99%BB%E5%85%A5.png)
 
 不能登入的三種狀況，從左至右:格式不對、不符合的身分證字號或密碼、已經完成投票(vote_status==1)
+
 ![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_3%E7%A8%AE%E4%B8%8D%E8%83%BD%E7%99%BB%E5%85%A5%E7%9A%84%E7%8B%80%E6%B3%81.png)
+
+可以登入的狀況:身份證字號跟密碼皆符合資料庫內的資訊，且尚未完成投票(vote_status==0)
+
+![image](https://github.com/Liang7414/vue3_project/blob/main/picture_github/%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90_%E5%8F%AF%E4%BB%A5%E7%99%BB%E5%85%A5%E7%9A%84%E7%8B%80%E6%B3%81.png)
 
 # 更新日誌
 登入介面-初版2024/06/23->
